@@ -19,7 +19,7 @@
     "pack": "webpack --config ./production.config.js",
     "postinstall": "npm prune",
     "serve": "webpack-dev-server --inline --content-base . --history-api-fallback",
-    "serve:dist": "npm run bundle && npm start",
+    "serve:dist": "npm run bundle && npm run nodemon",
     "start": "NODE_ENV=production node --harmony ./index.js",
     "test": "npm run mocha && npm run lint"
   },
