@@ -11,15 +11,9 @@ export default class HomeContainer extends Component {
 class Home extends Component {
   render() {
     return (
-      <div style={styles.content}>
+      <div>
         <h1>Home Screen</h1>
       </div>
     );
   }
 }
-
-const styles = {
-  content: {
-    marginTop: '54px'
-  }
-};
