@@ -12,7 +12,7 @@
     "clean": "rm -rf ./dist && mkdir dist",
     "heroku-postbuild": "npm run bundle",
     "lint": "eslint app/**",
-    "mocha": "mocha --require babel-core/register \"./app/**/*.spec.js\"",
+    "mocha": "mocha --require babel-core/register",
     "mocha:watch": "npm run mocha -- --watch",
     "move": "cp ./index.html ./dist",
     "nodemon": "nodemon ./index.js",
