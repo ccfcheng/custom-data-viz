@@ -1,10 +1,27 @@
 {
   "name": "custom-data-viz",
   "version": "0.0.0",
+  "engines": {
+    "node": "6.2.0",
+    "npm": "3.8.9"
+  },
   "description": "Proof of concept web app for custom data visualizations",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "bundle": "npm run clean && npm run move && npm run pack",
+    "clean": "rm -rf ./dist && mkdir dist",
+    "heroku-postbuild": "npm run bundle",
+    "lint": "eslint app/**",
+    "mocha": "mocha --require babel-core/register \"./app/**/*.spec.js\"",
+    "mocha:watch": "npm run mocha -- --watch",
+    "move": "cp ./index.html ./dist",
+    "nodemon": "nodemon ./index.js",
+    "pack": "webpack --config ./production.config.js",
+    "postinstall": "npm prune",
+    "serve": "webpack-dev-server --inline --content-base . --history-api-fallback",
+    "serve:dist": "npm run bundle && npm start",
+    "start": "NODE_ENV=production node --harmony ./index.js",
+    "test": "npm run mocha && npm run lint"
   },
   "repository": {
     "type": "git",
@@ -20,6 +37,7 @@
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
     "firebase": "^3.0.3",
+    "global": "^4.3.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-router": "^2.4.1",
@@ -31,7 +49,11 @@
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.5.0",
+    "chai": "^3.5.0",
     "eslint": "^2.11.1",
-    "eslint-plugin-react": "^5.1.1"
+    "eslint-plugin-react": "^5.1.1",
+    "mocha": "^2.5.3",
+    "nodemon": "^1.9.2",
+    "webpack-dev-server": "^1.14.1"
   }
 }
