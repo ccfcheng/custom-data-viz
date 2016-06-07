@@ -35,11 +35,13 @@
   "homepage": "https://github.com/ccfcheng/custom-data-viz#readme",
   "dependencies": {
     "body-parser": "^1.15.1",
+    "d3": "^3.5.17",
     "express": "^4.13.4",
     "firebase": "^3.0.3",
     "global": "^4.3.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
+    "react-faux-dom": "^2.5.0",
     "react-router": "^2.4.1",
     "webpack": "^1.13.1"
   },

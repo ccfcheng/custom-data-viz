@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import d3 from 'd3';
+import ReactFauxDOM from 'react-faux-dom';
 
 export default class HomeContainer extends Component {
   render() {
@@ -10,10 +12,15 @@ export default class HomeContainer extends Component {
 
 class Home extends Component {
   render() {
-    return (
-      <div>
-        <h1>Home Screen</h1>
-      </div>
-    );
+    const list = ReactFauxDOM.createElement('ul');
+
+    d3.select(list)
+      .selectAll('li')
+      .data(['first', 'second', 'third', 'd3 items'])
+      .enter()
+      .append('li')
+      .text(d => d);
+
+    return list.toReact();
   }
 }
